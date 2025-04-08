@@ -6,8 +6,8 @@ import (
 )
 
 type BookRepository interface {
-	Save(book model.Book) (model.Book, error)
-	FindAll() []model.Book
+	Create(book model.Book) (model.Book, error)
+	FindAll() ([]model.Book, error)
 	FindByID(id int) (model.Book, error)
 	Update(book model.Book) (model.Book, error)
 	Delete(id int) error
@@ -19,15 +19,15 @@ func NewBookRepository() BookRepository {
 	return &bookRepository{}
 }
 
-func (r *bookRepository) Save(book model.Book) (model.Book, error) {
+func (r *bookRepository) Create(book model.Book) (model.Book, error) {
 	err := config.DB.Create(&book).Error
 	return book, err
 }
 
-func (r *bookRepository) FindAll() []model.Book {
+func (r *bookRepository) FindAll() ([]model.Book, error) {
 	var books []model.Book
-	config.DB.Find(&books)
-	return books
+	err := config.DB.Find(&books).Error
+	return books, err
 }
 
 func (r *bookRepository) FindByID(id int) (model.Book, error) {

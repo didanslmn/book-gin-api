@@ -32,7 +32,10 @@ func (h *BookHandler) CreateBook(c *gin.Context) {
 }
 
 func (h *BookHandler) GetAllBooks(c *gin.Context) {
-	books := h.Service.FindAll()
+	books, err := h.Service.FindAll()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to get book"})
+	}
 	c.JSON(http.StatusOK, books)
 }
 
