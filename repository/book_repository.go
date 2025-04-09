@@ -5,6 +5,7 @@ import (
 	"github.com/didanslmn/gin-restful-api/model"
 )
 
+// BookRepository adalah interface yang mendefinisikan kontrak untuk operasi terkait entitas Buku pada database.
 type BookRepository interface {
 	Create(book model.Book) (model.Book, error)
 	FindAll() ([]model.Book, error)
@@ -13,8 +14,11 @@ type BookRepository interface {
 	Delete(id int) error
 }
 
+// bookRepository adalah struct yang mengimplementasikan interface BookRepository.
+// Struct ini bertanggung jawab untuk berinteraksi langsung dengan database untuk operasi terkait buku.
 type bookRepository struct{}
 
+// NewBookRepository membuat dan mengembalikan instance baru dari bookRepository.
 func NewBookRepository() BookRepository {
 	return &bookRepository{}
 }

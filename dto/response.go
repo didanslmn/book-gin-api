@@ -6,6 +6,7 @@ import (
 	"github.com/didanslmn/gin-restful-api/model"
 )
 
+// Struct ini berisi informasi detail buku yang akan dikirimkan sebagai response API.
 type BookResponse struct {
 	ID          int       `json:"id"`
 	Title       string    `json:"title"`
@@ -16,6 +17,8 @@ type BookResponse struct {
 	UpdatedAt   time.Time ` json:"updated_at"`
 }
 
+// ToBookResponse adalah fungsi yang mengkonversi objek model.Book menjadi objek BookResponse.
+// Fungsi ini berguna untuk memformat data buku dari layer model menjadi format response API.
 func ToBookResponse(b *model.Book) *BookResponse {
 	return &BookResponse{
 		ID:          b.ID,
