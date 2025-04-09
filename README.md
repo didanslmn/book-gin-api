@@ -38,12 +38,14 @@ go get -u gorm.io/gorm
 
 ## Endpoint
 
-HTTP Method	Endpoint	Handler Function	Deskripsi
-POST	  | /v1/books	    | CreateBook	Membuat data buku baru
-GET	    | /v1/books	    | GetAllBooks	Mendapatkan semua data buku
-GET	    | /v1/books/:id	| GetBookByID	Mendapatkan buku berdasarkan ID
-PUT	    | /v1/books/:id	| UpdateBook	Memperbarui data buku berdasarkan ID
-DELETE	| /v1/books/:id	| DeleteBook	Menghapus data buku berdasarkan ID
+HTTP Method,	Endpoint	,Handler Function,	Deskripsi
+
+- POST	  | /v1/books	    | CreateBook	| Membuat data buku baru
+- GET	    | /v1/books	    | GetAllBooks	| Mendapatkan semua data buku
+- GET	    | /v1/books/:id	| GetBookByID	| Mendapatkan buku berdasarkan ID
+- PUT	    | /v1/books/:id	| UpdateBook	| Memperbarui data buku berdasarkan ID
+- DELETE	| /v1/books/:id	| DeleteBook	| Menghapus data buku berdasarkan ID
+
 
 Base URL :
 ```bash
